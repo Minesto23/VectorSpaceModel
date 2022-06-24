@@ -148,7 +148,7 @@ public class Test {
 			
 		q = Math.sqrt(q);
 		
-		System.out.println("q = " + q);
+		System.out.println("\nVector lenght of your query:\n q = " + q);
 		
 		// cosine funtion
 		
@@ -370,18 +370,23 @@ public class Test {
 	}
 	
 	public static void result(double q, double cosine1, double cosine2, double cosine3) {
-		double d1 = q - cosine1;
-		double d2 = q - cosine2;
-		double d3 = q - cosine3;
+		double d1 = Math.abs(q - cosine1);
+		double d2 = Math.abs(q - cosine2);
+		double d3 = Math.abs(q - cosine3);
 		
+		System.out.println("\nCompute the more near value: ");
+		System.out.println("d1 = " + d1);
+		System.out.println("d2 = " + d2);
+		System.out.println("d3 = " + d3);
 		
 		double lower = d1;
 		
-		if(lower < d2)
+		if(lower > d2)
 			lower = d2;
-		if(lower < d3)
+		if(lower > d3)
 			lower = d3;
 		
+		System.out.println("more near value: " + lower);
 		String result="";
 		
 		if(lower == d1) {
@@ -408,6 +413,8 @@ public class Test {
 				result += " WordCount1.txt, WordCount2.txt,";
 			else
 				result += " WordCount2.txt, WordCount1.txt,";
+		}else {
+			result += "your query it's not inside the files";
 		}
 		
 		System.out.println();
